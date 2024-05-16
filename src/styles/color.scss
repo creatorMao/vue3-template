@@ -1,0 +1,10 @@
+$colorMap: (
+    'primary':#00aaff,
+    'white':#fff
+);
+
+@each $key, $value in $colorMap {
+    .bg-color-#{$key} {
+        background-color: $value;
+    }
+}

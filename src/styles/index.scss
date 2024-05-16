@@ -1,4 +1,8 @@
-* {
-    margin: 0;
-    padding: 0;
+@import './display.scss';
+@import './color.scss';
+
+html,
+body,
+#app {
+    height: 100%;
 }

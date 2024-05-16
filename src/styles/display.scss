@@ -1,0 +1,96 @@
+// 存放布局相关的样式
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.w-full {
+    height: 100%;
+}
+
+.h-full {
+    height: 100%;
+}
+
+//flex相关
+//主轴方向map
+$flexDirectionMap: (
+    //从左到右（默认值）
+    'r':row,
+    //居中
+    'c':column
+);
+
+//主轴对齐方式map
+$justifyMap: (
+    //从左到右（默认值）
+    'start':flex-start,
+    //居中
+    'center':center,
+    //从右到左
+    'end':flex-end,
+    //先两边贴，再平分剩下的
+    'between':space-between,
+    //平均分
+    'around':space-around
+);
+
+//侧轴对其方式map
+$alignMap: (
+    //从上到下
+    'start':flex-start,
+    //居中
+    'center':center,
+    //从下到上
+    'end':flex-end,
+    //拉伸（（默认值））
+    'stretch':stretch
+);
+
+@each $justifyKey, $justifyValue in $justifyMap {
+    @each $alignKey, $alignValue in $alignMap {
+
+        //flex-center-center:{display:flex;justify-content:center;align-items: center}
+        .flex-#{$justifyKey}-#{$alignKey} {
+            display: flex;
+            justify-content: $justifyValue;
+            align-items: $alignValue;
+        }
+
+        @each $flexDirectionKey, $flexDirectionValue in $flexDirectionMap {
+            .flex-#{$flexDirectionKey}-#{$justifyKey}-#{$alignKey} {
+                display: flex;
+                flex-direction: $flexDirectionValue;
+                justify-content: $justifyValue;
+                align-items: $alignValue;
+            }
+        }
+    }
+}
+
+//padding，margin相关
+$spacingTypeMap: (
+    'p':padding,
+    'm':margin
+);
+
+$spacingDirectionMap: (
+    't':top,
+    'b':bottom,
+    'l':left,
+    'r':right
+);
+
+$spacing-base-size: 1px; // 基数
+
+@each $spacingTypeKey, $spacingTypeValue in $spacingTypeMap {
+    @each $spacingDirectionKey, $spacingDirectionValue in $spacingDirectionMap {
+        @for $i from 1 through 50 {
+
+            //.p-t-10{padding-top:10px}
+            .#{$spacingTypeKey}-#{$spacingDirectionKey}-#{$i} {
+                #{$spacingTypeValue}-#{$spacingDirectionValue}:#{$i}px
+            }
+        }
+    }
+}

@@ -11,4 +11,10 @@ const app = createApp(App)
 
 app.config.globalProperties.$http = http
 
+// 全局组件注册
+import components from '@/components/index';
+Object.keys(components).forEach((key) => {
+    app.component(key, components[key]);
+});
+
 app.mount('#app')
