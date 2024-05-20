@@ -1,13 +1,13 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-import http from './http/'
+import request from '@/utils/request'
 import '@/styles/index.scss'
 import App from './App.vue'
 import router from '@/router/index.ts'
 
 const app = createApp(App).use(router).use(createPinia())
 
-app.config.globalProperties.$http = http
+app.config.globalProperties.$request = request
 
 // 注册所有图标
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'

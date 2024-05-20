@@ -31,6 +31,7 @@
 <script setup lang="ts">
 import { reactive, getCurrentInstance } from 'vue'
 const { proxy } = getCurrentInstance() as any
+import { login } from '@/api/user'
 
 const loginForm = reactive({
   userName: '',
@@ -65,7 +66,9 @@ function validatePassword(_rule: any, value: any, callback: any) {
 function handleLogin() {
   proxy.$refs.loginFormRef.validate((result: any) => {
     if (result) {
-      alert('成功')
+      login({}).then((res) => {
+        console.log(res)
+      })
     }
   })
 }

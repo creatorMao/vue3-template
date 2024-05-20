@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "concurrently \"vite\" \"node ./apiServer/index.js\"",
     "build": "vue-tsc && vite build",
     "preview": "vite preview"
   },
@@ -19,6 +19,8 @@
   "devDependencies": {
     "@types/node": "^20.12.8",
     "@vitejs/plugin-vue": "^5.0.4",
+    "concurrently": "^8.2.2",
+    "express": "^4.19.2",
     "sass": "^1.77.0",
     "typescript": "^5.2.2",
     "unplugin-auto-import": "^0.17.5",
