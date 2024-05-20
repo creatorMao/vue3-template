@@ -4,8 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"vite\" \"node ./apiServer/index.js\"",
-    "build": "vue-tsc && vite build",
+    "dev": "concurrently \"vite --mode dev\" \"node ./apiServer/index.js\"",
+    "prod": "concurrently \"vite --mode prod\" \"node ./apiServer/index.js\"",
+    "build": "vue-tsc && vite build --mode prod",
     "preview": "vite preview"
   },
   "dependencies": {

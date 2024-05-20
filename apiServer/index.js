@@ -29,8 +29,8 @@ const initExpress = (port) => {
   })
 
   app.listen(port, () => {
-    console.log(`后端服务程序已启动，请访问 http://localhost:${port}/`)
+    console.log(`  后端服务程序已启动，请访问 http://localhost:${port}/`)
   })
 }
 
-initExpress(4000)
+initExpress(9999)
