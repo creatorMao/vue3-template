@@ -1,0 +1,48 @@
+{
+	"vue3单文件模板-代码片段": {
+		// "scope": "javascript,typescript",
+		"prefix": "vue3init",
+		"body": [
+			"<template>",
+			"",
+			"</template>",
+			"",
+			"<script setup lang='ts'>",
+			"$0",
+			"</script>",
+			"",
+			"<style scoped lang='scss'>",
+			"",
+			"</style>",
+		],
+		"description": "vue3单文件模板-代码片段"
+	},
+	"slot-代码片段": {
+		"prefix": "slot",
+		"body": [
+			"<slot>$0</slot>",
+		],
+		"description": "slot-代码片段"
+	},
+	"ref-代码片段": {
+		"prefix": "ref",
+		"body": [
+			"import { reactive } from 'vue'",
+		],
+		"description": "ref-代码片段"
+	},
+	"log-代码片段": {
+		"prefix": "log",
+		"body": [
+			"console.log($0)",
+		],
+		"description": "log-代码片段"
+	},
+	"vue3-this-代码片段": {
+		"prefix": "this",
+		"body": [
+			"const { proxy } = getCurrentInstance() as any",
+		],
+		"description": "vue3-this-代码片段"
+	}
+}
