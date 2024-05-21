@@ -1,8 +1,3 @@
-export interface IReqLogin {
-  userName: string
-  password: string
-}
-
 export interface IPermission {
   path: string
 }
@@ -19,4 +14,9 @@ export interface IResLogin {
   }
   msg: string
   code: number
+}
+
+export interface IReqLogin {
+  userName: string
+  password: string
 }
