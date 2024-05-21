@@ -26,6 +26,7 @@ import { ElMessage, ElMessageBox } from 'element-plus'
 app.use(ElMessage)
 app.use(ElMessageBox)
 app.config.globalProperties.$message = ElMessage
+app.config.globalProperties.$messageBox = ElMessageBox
 
 //自定义样式
 import '@/styles/index.scss'
