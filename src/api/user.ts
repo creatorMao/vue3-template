@@ -1,11 +1,10 @@
 import request from '@/utils/request'
+import type { IReqLogin, IResLogin } from '@/types/user'
 
-function login(data: any) {
+export function loginApi(data: IReqLogin): Promise<IResLogin> {
   return request({
     url: '/web/api/auth/login',
     method: 'post',
     data
   })
 }
-
-export { login }

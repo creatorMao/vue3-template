@@ -1,24 +1,22 @@
 import { defineStore } from 'pinia'
-import { login } from '@/api/user'
+import { loginApi } from '@/api/user'
+import type { IReqLogin, IPermission, IUserInfo } from '@/types/user'
+import { ref } from 'vue'
 
-const useUserStore = defineStore('user', {
-  state() {
-    return {
-      token: '',
-      userInfo: {},
-      permissionList: []
-    }
-  },
-  actions: {
-    async login(data: any) {
-      const res: any = await login(data)
-      const { userInfo, token, permissionList } = res.data
-      this.userInfo = userInfo
-      this.token = token
-      this.permissionList = permissionList
-      return res
-    }
+const useUserStore = defineStore('user', () => {
+  const token = ref('')
+  const userInfo = ref<IUserInfo>({} as IUserInfo)
+  const permissionList = ref<IPermission[]>([])
+
+  async function login(data: IReqLogin) {
+    const res = (await loginApi(data)).data
+    token.value = res.token
+    userInfo.value = res.userInfo
+    permissionList.value = res.permissionList
+    return res
   }
+
+  return { token, userInfo, permissionList, login }
 })
 
 export default useUserStore
