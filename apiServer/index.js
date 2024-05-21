@@ -25,7 +25,7 @@ const initExpress = (port) => {
   })
 
   app.all('/web/api/auth/login', async function (req, res) {
-    res.send({ data: { msg: '', token: '111111' } })
+    res.send({ msg: '请求成功！', code: 200, data: { token: '1111' } })
   })
 
   app.listen(port, () => {

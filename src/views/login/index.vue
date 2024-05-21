@@ -66,8 +66,8 @@ function validatePassword(_rule: any, value: any, callback: any) {
 function handleLogin() {
   proxy.$refs.loginFormRef.validate((result: any) => {
     if (result) {
-      login({}).then((res) => {
-        console.log(res)
+      login({}).then(() => {
+        proxy.$message({ message: '登录成功', type: 'success' })
       })
     }
   })
