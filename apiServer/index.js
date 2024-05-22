@@ -33,7 +33,20 @@ const initExpress = (port) => {
         userInfo: {
           userName: '六子面馆'
         },
-        permissionList: []
+        permissionList: [
+          {
+            title: '系统管理',
+            path: '/system',
+            component: '',
+            children: [
+              {
+                title: '用户',
+                path: '/system/user',
+                component: 'views/system/user/index'
+              }
+            ]
+          }
+        ]
       }
     })
   })

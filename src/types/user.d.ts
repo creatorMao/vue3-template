@@ -1,5 +1,8 @@
 export interface IPermission {
+  title: string
   path: string
+  component: string
+  children: IPermission[]
 }
 
 export interface IUserInfo {
