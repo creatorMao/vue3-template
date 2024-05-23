@@ -33,6 +33,7 @@ import { reactive, getCurrentInstance } from 'vue'
 const { proxy } = getCurrentInstance() as any
 import useUserStore from '@/store/user'
 const userStore = useUserStore()
+import { showSuccessMsg } from '@/utils/message'
 
 const loginForm = reactive({
   userName: '',
@@ -68,7 +69,7 @@ function handleLogin() {
   proxy.$refs.loginFormRef.validate((result: any) => {
     if (result) {
       userStore.login(loginForm).then(() => {
-        proxy.$message({ message: '登录成功', type: 'success' })
+        showSuccessMsg('登录成功')
         proxy.$router.push({ path: '/' })
       })
     }

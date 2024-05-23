@@ -2,12 +2,12 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { ElMessage } from 'element-plus'
 import useUserStore from '@/store/user'
 
-const pathMap = {
+export const pathMap = {
   loginPath: '/login',
   homePath: '/'
 }
 
-const router = createRouter({
+export const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
@@ -27,16 +27,20 @@ const router = createRouter({
  * 每次访问路由时，都会触发
  */
 
-router.beforeEach(async (to, __from, next) => {
+router.beforeEach(async (to, from, next) => {
   const userStore = useUserStore()
 
   if (userStore.token) {
     if (to.path === pathMap.loginPath) {
-      ElMessage({
-        message: '您已登录，无需再次登录！',
-        type: 'success',
-        duration: 3 * 1000
-      })
+      //非登录页面，去访问登录页面，做个友好提示
+      if (from.path != pathMap.loginPath) {
+        ElMessage({
+          message: '您已登录，无需再次登录！',
+          type: 'success',
+          duration: 3 * 1000
+        })
+      }
+
       next({ path: pathMap.homePath }) //已经登录过,目标又是登录页面的话，直接跳到首页
     } else {
       next() // 已经登录过，不是登录页面，放行
@@ -49,5 +53,3 @@ router.beforeEach(async (to, __from, next) => {
     }
   }
 })
-
-export default router

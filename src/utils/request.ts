@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { ElMessage } from 'element-plus'
+import { showErrorMsg } from '@/utils/message'
 
 const request = axios.create({
   baseURL: import.meta.env.VITE_APP_SERVICE_API,
@@ -29,22 +29,13 @@ request.interceptors.response.use(
       return res
     } else {
       const errorMsg = msg || '请求异常！'
-      ElMessage({
-        message: errorMsg,
-        type: 'error',
-        duration: 3 * 1000
-      })
+      showErrorMsg(errorMsg)
       return Promise.reject(errorMsg)
     }
   },
   (error) => {
     //跨域等错误在此
-
-    ElMessage({
-      message: '请求异常!',
-      type: 'error',
-      duration: 3 * 1000
-    })
+    showErrorMsg('请求异常!')
 
     return Promise.reject(error)
   }
