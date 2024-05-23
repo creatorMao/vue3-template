@@ -1,13 +1,13 @@
 import { ElMessage } from 'element-plus'
 
-export const showSuccessMsg = (message: string) => {
+export function showSuccessMsg(message: string) {
   ElMessage({
     message,
     type: 'success'
   })
 }
 
-export const showErrorMsg = (message: string, duration: number = 3 * 1000) => {
+export function showErrorMsg(message: string, duration: number = 1.5 * 1000) {
   ElMessage({
     message,
     type: 'error',
