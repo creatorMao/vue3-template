@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 import { loginApi } from '@/api/user'
 import type { IReqLogin, IPermission, IUserInfo } from '@/types/user'
 import { ref } from 'vue'
-import { router, pathMap } from '@/router/index.ts'
+import { router, pathMap } from '@/router/index'
 
 const useUserStore = defineStore('user', () => {
   const token = ref('')
