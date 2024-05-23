@@ -44,5 +44,12 @@
 			"const { proxy } = getCurrentInstance() as any",
 		],
 		"description": "vue3-this-代码片段"
+	},
+	"vue3-msg-代码片段": {
+		"prefix": "msg",
+		"body": [
+			"import { showSuccessMsg } from '@/utils/message'",
+		],
+		"description": "vue3-msg-代码片段"
 	}
 }
