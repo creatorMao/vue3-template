@@ -7,7 +7,8 @@
     "dev": "concurrently \"vite --mode dev\" \"node ./apiServer/index.js\"",
     "prod": "concurrently \"vite --mode prod\" \"node ./apiServer/index.js\"",
     "build": "vue-tsc && vite build --mode prod",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "format": "prettier --write src/"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
