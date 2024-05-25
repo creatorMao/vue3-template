@@ -1,8 +1,9 @@
-export interface IPermission {
+export interface IRouter {
   title: string
   path: string
   component: string
-  children: IPermission[]
+  children: IRouter[]
+  icon: string
 }
 
 export interface IUserInfo {
@@ -13,7 +14,7 @@ export interface IResLogin {
   data: {
     userInfo: IUserInfo
     token: string
-    permissionList: IPermission[]
+    routerList: IRouter[]
   }
   msg: string
   code: number

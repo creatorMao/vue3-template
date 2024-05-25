@@ -12,6 +12,20 @@
   height: 100%;
 }
 
+.flex-r{
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-c{
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-1{
+  flex:1
+}
+
 //flex相关
 //主轴方向map
 $flexDirectionMap: (

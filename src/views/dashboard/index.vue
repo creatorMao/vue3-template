@@ -1,12 +1,24 @@
 <template>
-  首页{{ userStore.permissionList }}
-  <router-link to="/login">登录</router-link>
-  <button @click="handleLogout">退出登录</button>
+  <div class="h-full flex-r">
+    <div class="left">
+      <MenuBar />
+    </div>
+    <div class="right flex-1 flex-c">
+      <div class="header">
+        <router-link to="/login">登录</router-link>
+        <button @click="handleLogout">退出登录</button>
+      </div>
+      <div class="content flex-1">
+        <router-view></router-view>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
-import useUserStore from '@/store/user'
+import MenuBar from './components/MenuBar.vue'
 import { showSuccessMsg } from '@/utils/message'
+import useUserStore from '@/store/user'
 const userStore = useUserStore()
 
 function handleLogout() {
@@ -15,4 +27,16 @@ function handleLogout() {
 }
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.left {
+  width: 200px;
+  background-color: red;
+}
+.right {
+  background-color: yellow;
+}
+.header {
+  min-height: 60px;
+  background-color: #fff;
+}
+</style>

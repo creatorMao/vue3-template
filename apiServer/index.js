@@ -33,16 +33,34 @@ const initExpress = (port) => {
         userInfo: {
           userName: '六子面馆'
         },
-        permissionList: [
+        routerList: [
           {
-            title: '系统管理',
-            path: '/system',
+            title: '测试',
             component: '',
+            path: '/test',
+            icon: 'Tools',
             children: [
               {
-                title: '用户',
-                path: '/system/user',
-                component: 'views/system/user/index'
+                title: '测试1',
+                path: '/test/test1',
+                component: 'views/test/test1/index',
+                icon: 'Menu',
+                children: [
+                  {
+                    title: '测试1-1',
+                    path: '/test/test2',
+                    component: 'views/test/test2/index',
+                    icon: 'HelpFilled',
+                    children: []
+                  }
+                ]
+              },
+              {
+                title: '测试2',
+                path: '/test/test2',
+                component: 'views/test/test2/index',
+                icon: 'Histogram',
+                children: []
               }
             ]
           }
