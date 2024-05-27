@@ -22,8 +22,9 @@ import useUserStore from '@/store/user'
 const userStore = useUserStore()
 
 function handleLogout() {
-  userStore.logout()
-  showSuccessMsg('成功退出！')
+  userStore.logout(() => {
+    showSuccessMsg('成功退出！')
+  })
 }
 </script>
 

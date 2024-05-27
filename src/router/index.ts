@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { ElMessage } from 'element-plus'
 import useUserStore from '@/store/user'
+const views = import.meta.glob('@/views/**/**.vue')
+import type { IRouter } from '@/types/user'
 
 export const pathMap = {
   loginPath: '/login',
@@ -21,6 +23,8 @@ export const router = createRouter({
     }
   ]
 })
+
+let hasRouter = false
 
 /**
  * 全局前置守卫 https://router.vuejs.org/zh/guide/advanced/navigation-guards.html
@@ -45,7 +49,15 @@ router.beforeEach(async (to, from, next) => {
 
       next({ path: pathMap.homePath }) //已经登录过,目标又是登录页面的话，直接跳到首页
     } else {
-      next() // 已经登录过，不是登录页面，放行
+      // 已经登录过，不是登录页面，并且添加过路由，则放行
+      if (!hasRouter) {
+        addRoute(userStore.routerList)
+        hasRouter = true
+        //这里为什么是...to,https://blog.csdn.net/qq_18196779/article/details/130614411
+        next({ ...to, replace: true })
+      } else {
+        next()
+      }
     }
   } else {
     if (to.path === pathMap.loginPath) {
@@ -55,3 +67,20 @@ router.beforeEach(async (to, from, next) => {
     }
   }
 })
+
+//添加路由
+function addRoute(routeList: IRouter[]) {
+  routeList.forEach((item) => {
+    if (item.children.length > 0) {
+      addRoute(item.children)
+    } else {
+      router.addRoute('home', {
+        name: item.path,
+        path: item.path,
+        redirect: '',
+        component: views[`/src/views${item.component}.vue`],
+        children: []
+      })
+    }
+  })
+}

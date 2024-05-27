@@ -12,13 +12,6 @@ import { createPersistedState } from 'pinia-plugin-persistedstate'
 const pinia = createPinia()
 //注册持久化插件
 pinia.use(createPersistedState({ auto: true }))
-// 重写 $reset 方法 => 解决组合式api中无法使用问题
-pinia.use(({ store }) => {
-  const initialState = JSON.parse(JSON.stringify(store.$state))
-  store.$reset = () => {
-    store.$patch(initialState)
-  }
-})
 app.use(pinia)
 
 //饿了么注册
