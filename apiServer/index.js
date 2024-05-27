@@ -35,30 +35,30 @@ const initExpress = (port) => {
         },
         routerList: [
           {
-            title: '测试',
+            title: '一级菜单分类',
             component: '',
-            path: '/test',
+            path: '',
             icon: 'Grid',
             children: [
               {
-                title: '测试1',
-                path: '/test/test1',
-                component: 'views/test/test1/index',
+                title: '二级菜单分类',
+                path: '',
+                component: '',
                 icon: 'Menu',
                 children: [
                   {
-                    title: '测试1-1',
-                    path: '/test/test2',
-                    component: 'views/test/test2/index',
+                    title: '菜单1',
+                    path: '/test/test1',
+                    component: '/test/test1/index',
                     icon: 'Histogram',
                     children: []
                   }
                 ]
               },
               {
-                title: '测试2',
+                title: '菜单2',
                 path: '/test/test2',
-                component: 'views/test/test2/index',
+                component: '/test/test2/index',
                 icon: 'Histogram',
                 children: []
               }

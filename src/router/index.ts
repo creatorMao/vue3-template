@@ -11,6 +11,7 @@ export const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
+      name: 'home',
       path: pathMap.homePath,
       component: () => import('@/views/dashboard/index.vue')
     },

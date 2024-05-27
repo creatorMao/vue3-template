@@ -1,4 +1,4 @@
-<template>test2</template>
+<template>菜单2</template>
 
 <script setup lang="ts"></script>
 
