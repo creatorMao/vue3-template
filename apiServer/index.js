@@ -37,12 +37,12 @@ const initExpress = (port) => {
           {
             title: '一级菜单分类',
             component: '',
-            path: '',
+            path: '1',
             icon: 'Grid',
             children: [
               {
                 title: '二级菜单分类',
-                path: '',
+                path: '2',
                 component: '',
                 icon: 'Menu',
                 children: [
