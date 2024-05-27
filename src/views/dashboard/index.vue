@@ -1,7 +1,7 @@
 <template>
   <div class="h-full flex-r">
     <div class="left">
-      <MenuBar />
+      <MenuBar :routerList="userStore.routerList" />
     </div>
     <div class="right flex-1 flex-c">
       <div class="header">
@@ -29,7 +29,7 @@ function handleLogout() {
 
 <style scoped lang="scss">
 .left {
-  width: 200px;
+  width: 250px;
   background-color: red;
 }
 .right {

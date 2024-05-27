@@ -38,7 +38,7 @@ const initExpress = (port) => {
             title: '测试',
             component: '',
             path: '/test',
-            icon: 'Tools',
+            icon: 'Grid',
             children: [
               {
                 title: '测试1',
@@ -50,7 +50,7 @@ const initExpress = (port) => {
                     title: '测试1-1',
                     path: '/test/test2',
                     component: 'views/test/test2/index',
-                    icon: 'HelpFilled',
+                    icon: 'Histogram',
                     children: []
                   }
                 ]

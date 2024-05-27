@@ -35,7 +35,8 @@ router.beforeEach(async (to, from, next) => {
       //非登录页面，去访问登录页面，做个友好提示
       if (from.path != pathMap.loginPath) {
         ElMessage({
-          message: '您已登录，无需再次登录！',
+          message:
+            '您已登录，无需再次登录！若需使用另外账户登录，清先退出当前用户！',
           type: 'success',
           duration: 3 * 1000
         })
