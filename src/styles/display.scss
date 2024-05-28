@@ -97,10 +97,18 @@ $spacingDirectionMap: (
 $spacing-base-size: 1px; // 基数
 
 @each $spacingTypeKey, $spacingTypeValue in $spacingTypeMap {
+  @for $i from 1 through 50 {
+    //.p-10{padding:10px}
+    .#{$spacingTypeKey}-#{$i} {
+      box-sizing: border-box;
+      #{$spacingTypeValue}: #{$i}px;
+    }
+  }
   @each $spacingDirectionKey, $spacingDirectionValue in $spacingDirectionMap {
     @for $i from 1 through 50 {
       //.p-t-10{padding-top:10px}
       .#{$spacingTypeKey}-#{$spacingDirectionKey}-#{$i} {
+        box-sizing: border-box;
         #{$spacingTypeValue}-#{$spacingDirectionValue}: #{$i}px;
       }
     }
