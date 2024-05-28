@@ -68,7 +68,11 @@ router.beforeEach(async (to, from, next) => {
   }
 })
 
-//添加路由
+/**
+ * 往router里批量添加路由
+ * @author zhiwu.mao
+ * @param  routeList 路由列表
+ */
 function addRoute(routeList: IRouter[]) {
   routeList.forEach((item) => {
     if (item.children.length > 0) {
