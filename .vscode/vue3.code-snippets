@@ -51,5 +51,12 @@
 			"import { showSuccessMsg } from '@/utils/message'",
 		],
 		"description": "vue3-msg-代码片段"
+	},
+	"css-盒子宽度计算方式-代码片段": {
+		"prefix": "box",
+		"body": [
+			"box-sizing: border-box;",
+		],
+		"description": "css-盒子宽度计算方式-代码片段"
 	}
 }
