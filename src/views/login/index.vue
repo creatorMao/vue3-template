@@ -3,7 +3,11 @@
     <div class="container bg-color-white flex-c-center-center">
       <div>登录</div>
       <div class="m-t-20 login-box">
-        <el-form ref="loginFormRef" :rules="rules" :model="loginForm">
+        <el-form
+          ref="loginFormRef"
+          :rules="rules"
+          :model="loginForm"
+        >
           <el-form-item prop="userName">
             <el-input
               v-model="loginForm.userName"
@@ -20,9 +24,13 @@
             ></el-input>
           </el-form-item>
         </el-form>
-        <el-button type="primary" class="w-full" @click="handleLogin"
-          >登录</el-button
+        <el-button
+          type="primary"
+          class="w-full"
+          @click="handleLogin"
         >
+          登录
+        </el-button>
       </div>
     </div>
   </div>
@@ -57,7 +65,11 @@ const rules = {
   ]
 }
 
-function validatePassword(_rule: any, value: any, callback: any) {
+function validatePassword(
+  _rule: any,
+  value: any,
+  callback: any
+) {
   if (!value || value.length < 6) {
     callback(new Error('密码最少6位'))
   } else {

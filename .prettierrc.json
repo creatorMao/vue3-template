@@ -1,4 +1,5 @@
 {
+  "printWidth": 65,
   "semi": false,
   "singleQuote": true,
   "bracketSpacing": true,
